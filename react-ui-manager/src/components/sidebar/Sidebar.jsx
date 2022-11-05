@@ -1,7 +1,6 @@
 import React from "react";
 import "./Sidebar.scss";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -25,43 +24,38 @@ export default function Sidebar() {
       <div className="center">
         <ul>
           <p className="title">Trang chủ</p>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/dashboard" style={{ textDecoration: "none" }}>
             <li>
               <DashboardIcon className="icon" />
               <span>Trang chủ</span>
             </li>
           </Link>
           <p className="title">Danh mục</p>
-          <Link to="/users" style={{ textDecoration: "none" }}>
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Khách hàng </span>
-            </li>
-          </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+
+          <Link to="/material" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Sản phẩm</span>
+              <span>Vật liệu may</span>
             </li>
           </Link>
-          <Link to="/categories" style={{ textDecoration: "none" }}>
+          <Link to="/factory" style={{ textDecoration: "none" }}>
             <li>
               <StoreIcon className="icon" />
-              <span>Loại sản phẩm</span>
+              <span>Phân xưởng</span>
             </li>
           </Link>
 
-          <Link to="/deliveries" style={{ textDecoration: "none" }}>
+          <Link to="/warehouse" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />
-              <span>Giao hàng</span>
+              <span>Kho chứa</span>
             </li>
           </Link>
 
-          <Link to="/statistic" style={{ textDecoration: "none" }}>
+          <Link to="/supplier" style={{ textDecoration: "none" }}>
             <li>
               <LocalShippingIcon className="icon" />
-              <span>Báo cáo doanh thu</span>
+              <span>Nhà cung cấp</span>
             </li>
           </Link>
 
