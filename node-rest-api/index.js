@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/user");
+const warehouseRoute = require("./routes/warehouse");
 
 dotenv.config();
 const app = express();
@@ -15,7 +16,8 @@ mongoose.connect(process.env.MONGODB_URL, () => {
   console.log("Connected to MongoDB");
 });
 
-app.use("/v1/auth", userRoute);
+app.use("/user", userRoute);
+app.use("/warehouse", warehouseRoute);
 
 app.listen(8000, () => {
   console.log("listening on 8000");
