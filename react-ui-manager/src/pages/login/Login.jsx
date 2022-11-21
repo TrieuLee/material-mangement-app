@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -8,18 +8,23 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-
-
+import { loginUser } from "../../redux/apiRequest";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 const theme = createTheme();
 
 export default function Login() {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const newUser = {
+      username: username,
+      password: password,
+    };
+    loginUser(newUser, dispatch, navigate);
   };
 
   return (
@@ -52,6 +57,7 @@ export default function Login() {
               fullWidth
               id="email"
               label="Tài khoản"
+              onChange={(e) => setUserName(e.target.value)}
               name="email"
               autoComplete="email"
               autoFocus
@@ -62,6 +68,7 @@ export default function Login() {
               fullWidth
               name="Mật khẩu"
               label="Password"
+              onChange={(e) => setPassword(e.target.value)}
               type="password"
               id="password"
               autoComplete="current-password"

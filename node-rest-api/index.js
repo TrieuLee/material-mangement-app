@@ -22,3 +22,6 @@ app.use("/warehouse", warehouseRoute);
 app.listen(8000, () => {
   console.log("listening on 8000");
 });
+
+// jwb xác thực ng dùng cho token, id token cho mỗi ng dùng
+
