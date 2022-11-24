@@ -1,31 +1,54 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
-      minLength: 5,
-      maxLength: 20,
+      require: true,
+      min: 3,
+      max: 20,
       unique: true,
     },
     email: {
       type: String,
-      required: true,
-
+      require: true,
+      max: 50,
       unique: true,
     },
     password: {
       type: String,
-      required: true,
-      minLength: 6,
+      require: true,
+      min: 6,
+    },
+    profilePicture: {
+      type: String,
+      default: "",
+    },
+
+    city: {
+      type: String,
+      max: 50,
+    },
+    from: {
+      type: String,
+      max: 50,
+    },
+    likes: {
+      type: Array,
+      default: [],
+    },
+    reward: {
+      type: Number,
+      default: 0,
     },
     role: {
-      type: Boolean,
-      default: false,
+      // 1: ad, 2: nhân viên, 3:khách hàng
+      type: Number,
+      enum: [1, 2, 3],
+      default: 3,
     },
   },
-  { timestramp: true }
+  { timestamps: true }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", UserSchema);

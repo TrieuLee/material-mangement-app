@@ -1,4 +1,4 @@
-const { User } = require("../models/User");
+const { User } = require("../models");
 const bcrypt = require("bcryptjs");
 
 class UserCURD {
@@ -11,6 +11,7 @@ class UserCURD {
       console.log(err);
     }
   }
+
   async register(req, res) {
     try {
       // generate the password
@@ -51,6 +52,7 @@ class UserCURD {
       res.status(200).json(user);
     } catch (err) {
       res.status(500).json(err);
+      console.log(err);
     }
   }
   async update(req, res) {
