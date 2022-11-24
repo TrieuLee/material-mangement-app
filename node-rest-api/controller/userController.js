@@ -8,10 +8,8 @@ class UserCURD {
       res.json(user);
     } catch (err) {
       res.status(500).send();
-      console.log(err);
     }
   }
-
   async register(req, res) {
     try {
       // generate the password
